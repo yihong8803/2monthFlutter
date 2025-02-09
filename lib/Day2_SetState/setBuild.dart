@@ -13,18 +13,18 @@ class _setState2State extends State<setState2> {
   int _counter = 0;
   String _imagePath = "assets/img/cxk1.png";
 
-  AudioPlayer? _player;
+  final AudioPlayer _player = AudioPlayer();
 
   @override
   void dispose() {
-    _player?.dispose();
+    _player.dispose();
     super.dispose();
   }
 
-  void _play() {
-    _player?.dispose();
-    final player = _player = AudioPlayer();
-    player.play(AssetSource('cxk_sound1.mp3'));
+  void _play() async {
+    await _player.setSource(AssetSource('sounds/cxk_sound1.mp3'));
+    _player.seek(Duration.zero);
+    _player.resume();
   }
 
   @override
@@ -52,12 +52,11 @@ class _setState2State extends State<setState2> {
                   //Image
                   GestureDetector(
                     onTap: () {
+                      _play();
                       setState(() {
-                        if (_imagePath == "assets/img/cxk1.png") {
-                          _imagePath = "assets/img/cxk2.png";
-                        } else {
-                          _imagePath = "assets/img/cxk1.png";
-                        }
+                        _imagePath = _imagePath == "assets/img/cxk1.png"
+                            ? "assets/img/cxk2.png"
+                            : "assets/img/cxk1.png";
                       });
                     },
                     child: Container(
