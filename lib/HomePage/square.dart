@@ -29,7 +29,7 @@ class MySquare extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                      image: AssetImage("img/pic$navigate.png"),
+                      image: AssetImage("assets/img/pic$navigate.png"),
                       fit: BoxFit.cover)),
               width: 100,
               height: 100,

@@ -21,5 +21,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - img/
-    - sound/
+    - assets/img/
+    - assets/sounds/
+    - assets/sounds/cxk_sound1.mp3

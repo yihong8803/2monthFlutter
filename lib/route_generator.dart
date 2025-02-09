@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:two_month_flutter/Navigation/day1_navigation.dart';
+import 'package:two_month_flutter/Day1_Navigation/day1_navigation.dart';
 import 'package:two_month_flutter/HomePage/home.dart';
-import 'package:two_month_flutter/day2_setState.dart';
+import 'package:two_month_flutter/Day2_SetState/setState.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -13,7 +13,7 @@ class RouteGenerator {
       case '/1':
         return MaterialPageRoute(builder: (_) => FirstPage());
       case '/2':
-        return MaterialPageRoute(builder: (_) => StateWid());
+        return MaterialPageRoute(builder: (_) => setState1());
 
       default:
         return MaterialPageRoute(builder: (_) => HomePage());

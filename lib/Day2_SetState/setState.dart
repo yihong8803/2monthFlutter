@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:two_month_flutter/day2_setBuild.dart';
+import 'package:two_month_flutter/Day2_SetState/setBuild.dart';
 
-class StateWid extends StatefulWidget {
-  const StateWid({super.key});
+class setState1 extends StatefulWidget {
+  const setState1({super.key});
 
   @override
-  State<StateWid> createState() => _StateWidState();
+  State<setState1> createState() => _setState1State();
 }
 
-class _StateWidState extends State<StateWid> {
+class _setState1State extends State<setState1> {
   int _counter = 0;
 
   void _incrementCounter() {
