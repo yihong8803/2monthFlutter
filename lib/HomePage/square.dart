@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 class MySquare extends StatelessWidget {
   final String child;
+  final String desc;
   final String navigate;
-  const MySquare({super.key, required this.child, required this.navigate});
+  const MySquare(
+      {super.key,
+      required this.child,
+      required this.navigate,
+      required this.desc});
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +23,45 @@ class MySquare extends StatelessWidget {
         ),
         child: Row(
           children: [
+            //Image
             Container(
               margin: const EdgeInsets.only(left: 10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                      image: AssetImage("img/pic$navigate.png"), fit: BoxFit.cover)),
+                      image: AssetImage("img/pic$navigate.png"),
+                      fit: BoxFit.cover)),
               width: 100,
               height: 100,
             ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 60, left: 20),
-              width: 120,
-              child: Text(
-                child,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+
+            Column(
+              children: [
+                //Title
+                Container(
+                  margin: const EdgeInsets.only(top: 20, left: 20),
+                  width: 120,
+                  height: 25,
+                  child: Text(
+                    child,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+
+                //Text
+                Container(
+                  margin: const EdgeInsets.only(left: 20),
+                  width: 120,
+                  child: Text(
+                    desc,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ],
             ),
+
+            //Play Button
             Container(
                 margin: const EdgeInsets.only(left: 20),
                 child: ElevatedButton(

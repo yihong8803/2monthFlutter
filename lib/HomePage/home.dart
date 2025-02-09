@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:two_month_flutter/circle.dart';
-import 'package:two_month_flutter/square.dart';
+import 'package:two_month_flutter/HomePage/circle.dart';
+import 'package:two_month_flutter/HomePage/square.dart';
 
 class HomePage extends StatelessWidget {
   final List _posts = [
-    'First Page',
-    'Second Page',
+    'Day 3:',
+    'Day 4:',
+    'post 3',
+    'post 3',
+    'post 3',
+    'post 3'
+  ];
+
+  final List _descs = [
+    'Navigation',
+    'State Management',
     'post 3',
     'post 3',
     'post 3',
@@ -46,6 +55,7 @@ class HomePage extends StatelessWidget {
                   itemBuilder: ((context, index) {
                     return MySquare(
                       navigate: (index + 1).toString(),
+                      desc: _descs[index],
                       child: _posts[index],
                     );
                   })),

@@ -20,7 +20,11 @@ class FirstPage extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/2');
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => FirstPage(),
+                      ),
+                    );
                   },
                   child: Text("Go to the next")),
             ],
@@ -32,7 +36,7 @@ class FirstPage extends StatelessWidget {
 class SecondPage extends StatelessWidget {
   final String data;
 
-  const SecondPage({super.key, required this.data});
+  const SecondPage({super.key,  required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +57,8 @@ class SecondPage extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => FirstPage(),
-                      ),
-                    );
+                    Navigator.of(context).pushNamed('/2',arguments: "this is an arg");
+                    
                   },
                   child: Text("Go to the back")),
             ],
