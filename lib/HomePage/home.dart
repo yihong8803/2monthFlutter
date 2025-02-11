@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
   ];
 
   final List _stories = [
-    'story 1',
+    'To Do List',
     'story 2',
     'story 3',
     'story 4',
@@ -44,7 +44,9 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: _stories.length,
                   itemBuilder: (context, index) {
-                    return MyCircle(child: _stories[index]);
+                    return MyCircle(
+                        navigate: (index + 1).toString(),
+                        child: _stories[index]);
                   }),
             ),
 
