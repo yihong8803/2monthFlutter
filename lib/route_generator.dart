@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:two_month_flutter/Day1_Navigation/day1_navigation.dart';
+import 'package:two_month_flutter/Day3_TextField/textField.dart';
 import 'package:two_month_flutter/HomePage/home.dart';
 import 'package:two_month_flutter/Day2_SetState/setState.dart';
 import 'package:two_month_flutter/toDoList.dart';
@@ -16,6 +17,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => FirstPage());
       case '/2':
         return MaterialPageRoute(builder: (_) => setState1());
+      case '/3':
+        return MaterialPageRoute(builder: (_) => textField());
       case '!1':
         return MaterialPageRoute(builder: (_) => ToDoListPage());
 

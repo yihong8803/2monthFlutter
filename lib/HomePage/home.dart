@@ -4,9 +4,9 @@ import 'package:two_month_flutter/HomePage/square.dart';
 
 class HomePage extends StatelessWidget {
   final List _posts = [
+    'Day 1:',
     'Day 2:',
-    'Day 3:',
-    'post 3',
+    'Day 3',
     'post 3',
     'post 3',
     'post 3'
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   final List _descs = [
     'Navigation',
     'State Management',
-    'post 3',
+    'TextField',
     'post 3',
     'post 3',
     'post 3'
