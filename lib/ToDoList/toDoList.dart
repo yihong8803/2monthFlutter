@@ -1,11 +1,11 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:two_month_flutter/color.dart';
-import 'package:two_month_flutter/squareWeek.dart';
-import 'package:two_month_flutter/task.dart';
-import 'package:two_month_flutter/toDoList_cubit.dart';
-import 'package:two_month_flutter/squareDate.dart';
+import 'package:two_month_flutter/ToDoList/color.dart';
+import 'package:two_month_flutter/ToDoList/squareWeek.dart';
+import 'package:two_month_flutter/ToDoList/task.dart';
+import 'package:two_month_flutter/ToDoList/toDoList_cubit.dart';
+import 'package:two_month_flutter/ToDoList/squareDate.dart';
 
 class ToDoList extends StatelessWidget {
   const ToDoList({super.key});
@@ -13,32 +13,6 @@ class ToDoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int currentMonth = DateTime.now().month;
-
-    final List _taskName = [
-      'Navigation',
-      'State Management',
-      'do homework',
-      'gym exercise',
-      'flutter ',
-      'debate',
-      'lalat king',
-      'zei bi',
-      'beimuyu',
-      'music'
-    ];
-
-    final List _taskTime = [
-      '9:00 AM',
-      '12:00 PM',
-      '1:00 PM',
-      '4:20 PM',
-      '2:30 PM',
-      '1:40 PM',
-      '4:12 PM',
-      '9:50 PM',
-      '2:10 PM',
-      '8:00 PM',
-    ];
 
     final AudioPlayer _player = AudioPlayer();
 
@@ -128,13 +102,18 @@ class ToDoList extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: //Instagram post
-                  Expanded(
-                child: ListView.builder(
-                    itemCount: _taskTime.length,
-                    itemBuilder: ((context, index) {
-                      return ToDoTask(
-                          taskName: _taskName[index], time: _taskTime[index]);
-                    })),
+
+                  BlocBuilder<ToDoListCubit, List<Map<String, String>>>(
+                builder: (context, taskList) {
+                  return ListView.builder(
+                      itemCount: taskList.length,
+                      itemBuilder: ((context, index) {
+                        return ToDoTask(
+                          taskName: taskList[index]['name']!,
+                          time: taskList[index]['time']!,
+                        );
+                      }));
+                },
               ),
             ),
           ),
@@ -147,7 +126,8 @@ class ToDoList extends StatelessWidget {
           splashColor: whiteGrey,
           //Compress the setState function inside statfulBuilder
           onPressed: () {
-            _play(); // Correct function call
+            _play();
+            context.read<ToDoListCubit>().addTask("New Task", "8:00 PM");
           },
           child: Icon(Icons.add)),
     );

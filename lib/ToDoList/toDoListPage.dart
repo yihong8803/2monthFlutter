@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:two_month_flutter/toDoList.dart';
-import 'package:two_month_flutter/toDoList_cubit.dart';
+import 'package:two_month_flutter/ToDoList/toDoList.dart';
+import 'package:two_month_flutter/ToDoList/toDoList_cubit.dart';
 
 class ToDoListPage extends StatelessWidget {
   const ToDoListPage({super.key});
@@ -11,8 +11,11 @@ class ToDoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Bloc Provider
-    return BlocProvider(
-      create: (context) => MonthCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => MonthCubit()),
+        BlocProvider(create: (context) => ToDoListCubit()),
+      ],
       child: BlocListener<MonthCubit, String>(
         listener: (context, state) {},
         //ToDoList (UI)

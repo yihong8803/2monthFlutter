@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:two_month_flutter/ToDoList/toDoList_cubit.dart';
 
-class ToDoTask extends StatelessWidget {
+class ToDoTask extends StatefulWidget {
   final String taskName;
   final String time;
+
   const ToDoTask({super.key, required this.taskName, required this.time});
+
+  @override
+  State<ToDoTask> createState() => _ToDoTaskState();
+}
+
+class _ToDoTaskState extends State<ToDoTask> {
+  String _editedName= "";
+
+  
+  
+  
+  void updateTask() {
+    if (_editedName != widget.taskName) {
+      context
+          .read<ToDoListCubit>()
+          .updateTask(widget.taskName, _editedName);
+    }
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +63,20 @@ class ToDoTask extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 20),
                   child: Center(
                     child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        taskName,
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.normal),
-                      ),
-                    ),
+                        alignment: Alignment.centerLeft,
+                        child: TextField(
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.normal),
+                          decoration: InputDecoration(
+                            hintText: widget.taskName,
+                            border: InputBorder.none,
+                          ),
+                          onEditingComplete: () {
+                            setState(() {
+                              updateTask();
+                            });
+                          },
+                        )),
                   ),
                 ),
               ),
@@ -67,7 +97,7 @@ class ToDoTask extends StatelessWidget {
             child: Align(
               alignment: Alignment.center,
               child: Text(
-                time,
+                widget.time,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
               ),
             ),
