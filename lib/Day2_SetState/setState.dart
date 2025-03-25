@@ -37,7 +37,9 @@ class _setState1State extends State<setState1> {
       ),
       body: Center(
           child: Text('$_counter',
-              style: TextStyle(color: Colors.black, fontSize: 50))),
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontSize: 50))),
       floatingActionButton: FloatingActionButton(
           onPressed: _incrementCounter, child: Icon(Icons.add)),
     );

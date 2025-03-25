@@ -10,8 +10,9 @@ class HomePage extends StatelessWidget {
     'State Management',
     'TextField',
     'Provider',
-    'post 3',
-    'post 3'
+    'Theme, Dark Mode',
+    'Animation',
+    
   ];
 
   final List _stories = [

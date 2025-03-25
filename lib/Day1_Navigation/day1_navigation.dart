@@ -13,10 +13,7 @@ class FirstPage extends StatelessWidget {
             children: [
               Text(
                 "This",
-                style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w100),
+                style: TextStyle(fontSize: 50, fontWeight: FontWeight.w100),
               ),
               TextButton(
                   onPressed: () {
@@ -36,7 +33,7 @@ class FirstPage extends StatelessWidget {
 class SecondPage extends StatelessWidget {
   final String data;
 
-  const SecondPage({super.key,  required this.data});
+  const SecondPage({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +54,8 @@ class SecondPage extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/2',arguments: "this is an arg");
-                    
+                    Navigator.of(context)
+                        .pushNamed('/2', arguments: "this is an arg");
                   },
                   child: Text("Go to the back")),
             ],

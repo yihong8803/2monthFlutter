@@ -72,7 +72,9 @@ class _setState2State extends State<setState2> {
 
                   //Counter
                   Text('$_counter',
-                      style: TextStyle(color: Colors.black, fontSize: 50)),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.onBackground,
+                          fontSize: 50)),
                 ],
               )),
               floatingActionButton: FloatingActionButton(

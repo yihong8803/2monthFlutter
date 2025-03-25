@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:two_month_flutter/Day4_Provider/userProvider.dart';
+import 'package:two_month_flutter/Day5_Theme/themeProvider.dart';
 import 'package:two_month_flutter/route_generator.dart';
 import 'package:provider/provider.dart';
 
@@ -17,11 +18,19 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => UserProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => ThemeProvider(),
+        ),
       ],
-      child: MaterialApp(
-        initialRoute: '/',
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: RouteGenerator.generateRoute,
+      child: Builder(
+        builder: (context) {
+          return MaterialApp(
+            initialRoute: '/',
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: RouteGenerator.generateRoute,
+            theme: Provider.of<ThemeProvider>(context).themeData,
+          );
+        },
       ),
     );
   }
