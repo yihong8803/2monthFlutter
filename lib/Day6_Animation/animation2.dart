@@ -30,7 +30,7 @@ class _ImplicitAnimation2State extends State<ImplicitAnimation2>
   }
 
   void _play() async {
-    await _player.setSource(AssetSource('sounds/cxk_sound1.mp3'));
+    await _player.setSource(AssetSource('sounds/look at my eyes.mp3'));
     _player.seek(Duration.zero);
     _player.resume();
   }
