@@ -64,7 +64,7 @@ class _ImplicitAnimationState extends State<ImplicitAnimation>
             children: [
               AnimatedPositioned(
                   width: selected ? 50 : 300,
-                  height: selected ? 200 : 400,
+                  height: selected ? 200 : 430,
                   top: selected ? 250 : 150,
                   left: selected ? 40 : 40,
                   duration: Duration(seconds: 2),
