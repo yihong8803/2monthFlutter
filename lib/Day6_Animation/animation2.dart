@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:two_month_flutter/Day6_Animation/lottieAnimation.dart';
@@ -13,6 +14,7 @@ class ImplicitAnimation2 extends StatefulWidget {
 
 class _ImplicitAnimation2State extends State<ImplicitAnimation2>
     with TickerProviderStateMixin {
+  final AudioPlayer _player = AudioPlayer();
   late final AnimationController _controller = AnimationController(
     //vsync only available with TickerProviderStateMixin
     vsync: this,
@@ -24,6 +26,13 @@ class _ImplicitAnimation2State extends State<ImplicitAnimation2>
     // TODO: implement dispose
     super.dispose();
     _controller.dispose();
+    _player.dispose();
+  }
+
+  void _play() async {
+    await _player.setSource(AssetSource('sounds/cxk_sound1.mp3'));
+    _player.seek(Duration.zero);
+    _player.resume();
   }
 
   bool selected = false;
@@ -53,6 +62,7 @@ class _ImplicitAnimation2State extends State<ImplicitAnimation2>
             GestureDetector(
               onTap: () {
                 setState(() {
+                  _play();
                   opacityLevel = opacityLevel == 0 ? 1.0 : 0.0;
                 });
               },
