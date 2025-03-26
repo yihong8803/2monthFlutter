@@ -32,7 +32,7 @@ class _ImplicitAnimation2State extends State<ImplicitAnimation2>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AnimatedText & Builder"),
+        title: Text("Text, Builder, Opacity"),
         actions: [
           IconButton(
               onPressed: () {

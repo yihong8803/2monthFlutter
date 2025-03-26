@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:two_month_flutter/Day6_Animation/animtion2.dart';
+import 'package:two_month_flutter/Day6_Animation/animation2.dart';
 import 'package:two_month_flutter/Day6_Animation/lottieAnimation.dart';
 import 'package:two_month_flutter/Day6_Animation/lottieAnimation2.dart';
 
@@ -13,13 +13,13 @@ class ImplicitAnimation extends StatefulWidget {
 
 class _ImplicitAnimationState extends State<ImplicitAnimation>
     with TickerProviderStateMixin {
-  bool isExpanded = false;
+  bool isExpanded = true;
   bool selected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AnimatedSize, Positioned & Align"),
+        title: Text("Size, Positioned & Align"),
         actions: [
           IconButton(
               onPressed: () {
